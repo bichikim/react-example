@@ -18,20 +18,20 @@ export const useAsync = (value: Promise<any> | any, onChange: OnChange) => {
 
   useEffect(() => {
     Promise.resolve().then(() => value)
-    .then((value) => {
-      state.current = {
-        ...state.current,
-        error: null,
-        value,
-      }
-      onChangeRef.current(state.current)
-    }).catch((error) => {
-      state.current = {
-        ...state.current,
-        error,
-        value: null,
-      }
-      onChangeRef.current(state.current)
-    })
-  }, [value])
+      .then((value) => {
+        state.current = {
+          ...state.current,
+          error: null,
+          value,
+        }
+        onChangeRef.current(state.current)
+      }).catch((error) => {
+        state.current = {
+          ...state.current,
+          error,
+          value: null,
+        }
+        onChangeRef.current(state.current)
+      })
+  }, [value, onChangeRef])
 }
