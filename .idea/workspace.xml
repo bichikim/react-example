@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="203c30e3-1cfe-4195-8875-20a8224cce60" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/framer-test.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.jest/cache/haste-map-ec9de2c4cb041c485a69a167ffdf2ee2-66ccf73fc9aec99b57762df1af78edf8-ef1c3bc6870793c2703ddfb1fc777441" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.jest/cache/perf-cache-ec9de2c4cb041c485a69a167ffdf2ee2-d41d8cd98f00b204e9800998ecf8427e" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/global.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/__tests__/use-handle.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/use-async-import.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/use-async-pipe.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/use-async.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/use-blur-all.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/use-handle.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/use-immer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/use-override.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/use-previous.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/use-universal-children.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/react-app-env.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/setupTests.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/pipe/Wrap.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/pipe/async-pipe.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/pipe/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/pipe/pipe.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/pipe/symbol.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/pipe/traps.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/pipe/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/pipe/utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/pipe/wraps.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+        <option value="JavaScript File" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="q6stngop" />
+  </component>
+  <component name="ProjectId" id="1hHElul5lmHQjJ7dQqvBUgXNic0" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/hooks" />
+    <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/react-scripts" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="settings.typescriptcompiler" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.1.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Apps\framer-test\src\hooks" />
+      <recent name="E:\Apps\framer-test\src\utils\pipe" />
+      <recent name="E:\Apps\framer-test" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Jest.use-handle">
+    <configuration name="use-handle" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/hooks/__tests__/use-handle.spec.ts" />
+      <test-names>
+        <test-name value="use-handle" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="use-handle.should serve value" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/hooks/__tests__/use-handle.spec.ts" />
+      <test-names>
+        <test-name value="use-handle" />
+        <test-name value="should serve value" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="test" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Jest.use-handle" />
+        <item itemvalue="npm.test" />
+        <item itemvalue="Jest.use-handle.should serve value" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="203c30e3-1cfe-4195-8875-20a8224cce60" name="Default Changelist" comment="" />
+      <created>1599659771931</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1599659771931</updated>
+      <workItem from="1599659773059" duration="11365000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1851" height="260" key="GridCell.Tab.0.bottom" timestamp="1599667637395">
+      <screen x="64" y="0" width="3376" height="1440" />
+    </state>
+    <state width="1851" height="260" key="GridCell.Tab.0.bottom/64.0.3376.1440@64.0.3376.1440" timestamp="1599667637395" />
+    <state width="1851" height="260" key="GridCell.Tab.0.center" timestamp="1599667637395">
+      <screen x="64" y="0" width="3376" height="1440" />
+    </state>
+    <state width="1851" height="260" key="GridCell.Tab.0.center/64.0.3376.1440@64.0.3376.1440" timestamp="1599667637395" />
+    <state width="1851" height="260" key="GridCell.Tab.0.left" timestamp="1599667637395">
+      <screen x="64" y="0" width="3376" height="1440" />
+    </state>
+    <state width="1851" height="260" key="GridCell.Tab.0.left/64.0.3376.1440@64.0.3376.1440" timestamp="1599667637395" />
+    <state width="1851" height="260" key="GridCell.Tab.0.right" timestamp="1599667637395">
+      <screen x="64" y="0" width="3376" height="1440" />
+    </state>
+    <state width="1851" height="260" key="GridCell.Tab.0.right/64.0.3376.1440@64.0.3376.1440" timestamp="1599667637395" />
+    <state x="409" y="368" key="SettingsEditor" timestamp="1599666629352">
+      <screen x="64" y="0" width="3376" height="1440" />
+    </state>
+    <state x="409" y="368" key="SettingsEditor/64.0.3376.1440@64.0.3376.1440" timestamp="1599666629352" />
+  </component>
+</project>
