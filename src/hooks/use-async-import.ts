@@ -1,8 +1,7 @@
-import {FC, createElement as h, useEffect, useRef, useState, useMemo, useCallback} from 'react'
-import {usePrevious} from './use-previous'
-import {useAsync, OnChange, AsyncState} from './use-async'
+import {useCallback, useRef} from 'react'
+import {OnChange, useAsync} from './use-async'
 
-type Getter<R> =  (module: R) => any
+type Getter<R> = (module: R) => any
 type AsyncImport<R> = () => (Promise<R> | R)
 type OnImportsChange = (value: Record<string, any>) => any
 
@@ -26,7 +25,7 @@ interface AsyncImports {
 }
 
 const getImportInfo = (value: AsyncImport<any> | AsyncImportInfo<any>): AsyncImportInfo<any> => {
-  if(typeof value === 'function') {
+  if (typeof value === 'function') {
     return {module: value}
   }
   return value

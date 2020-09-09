@@ -2,7 +2,10 @@ import {cloneElement, isValidElement, ReactChild, ReactNode} from 'react'
 
 export type FunctionChild<P extends Record<string, any>> = (props: P) => ReactChild
 
-export type FunctionNode<P extends Record<string, any>> = FunctionChild<P> | (FunctionChild<P>)[] | {[key: string]: FunctionChild<P>}
+export type FunctionNode<P extends Record<string, any>> =
+  FunctionChild<P>
+  | (FunctionChild<P>)[]
+  | {[key: string]: FunctionChild<P>}
 
 const resolveChild = (child: FunctionChild<any>, _props, index?: number | string) => {
   if (typeof child !== 'function') {

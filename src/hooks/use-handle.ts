@@ -11,7 +11,7 @@ interface UseHandleOptions<E extends Event, V = any> {
 
 const getValue = <E extends Event, V = any>(
   event: E, value: V, getter: Getter<E, V>,
-  ) => {
+) => {
   return getter(event, value)
 }
 

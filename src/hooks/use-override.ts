@@ -1,11 +1,4 @@
-import {
-  Children,
-  cloneElement,
-  isValidElement,
-  ReactElement,
-  ReactNode,
-  useMemo,
-} from 'react'
+import {Children, cloneElement, isValidElement, ReactElement, ReactNode, useMemo} from 'react'
 
 type OverridePropsMerger = (overrideProps: Record<string, any>, childProps: Record<string, any>, child: ReactElement) => Record<string, any>
 
@@ -14,7 +7,7 @@ export interface OverrideOptions {
   propsMerger?: OverridePropsMerger
 }
 
-export interface NodeOverrideProps extends OverrideOptions{
+export interface NodeOverrideProps extends OverrideOptions {
   overrideProps?: Record<string, any>
 }
 

@@ -1,4 +1,4 @@
-import {Dispatch, SetStateAction, useEffect, useMemo, useState, useRef} from 'react'
+import {useEffect, useRef} from 'react'
 
 export type OnChange = (value: AsyncState) => any
 
@@ -25,7 +25,7 @@ export const useAsync = (value: Promise<any> | any, onChange: OnChange) => {
       state.current = {
         ...state.current,
         error,
-        value: null
+        value: null,
       }
       onChange(state.current)
     })

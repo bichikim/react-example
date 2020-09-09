@@ -1,5 +1,5 @@
+import {useMemo} from 'react'
 import {createAsyncPipe, PipeFunc, Trap, Wrap} from '../utils/pipe'
-import {Dispatch, SetStateAction, useEffect, useMemo, useState} from 'react'
 
 export interface AsyncOptions {
   trap?: Trap
