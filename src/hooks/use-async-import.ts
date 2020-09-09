@@ -1,4 +1,4 @@
-import {useCallback, useRef} from 'react'
+import {useCallback, useEffect, useRef} from 'react'
 import {OnChange, useAsync} from './use-async'
 
 type Getter<R> = (module: R) => any
@@ -31,20 +31,26 @@ const getImportInfo = (value: AsyncImport<any> | AsyncImportInfo<any>): AsyncImp
   return value
 }
 
-export const useAsyncImports = (imports: AsyncImports, onChange: OnImportsChange, getter: Getter<any> = defaultGetter) => {
+export const useAsyncImports = (imports: AsyncImports, onChange: OnImportsChange) => {
   const state = useRef<Record<string, any>>({})
+  const onChangeRef = useRef(onChange)
+  onChangeRef.current = onChange
 
-  Object.keys(imports).forEach((key) => {
-    const importInfo = imports[key]
+  useEffect(() => {
+    Object.keys(imports).forEach((key) => {
+      const importInfo = imports[key]
 
-    const {module: importFunc, getter: _getter} = getImportInfo(importInfo)
+      const {module: importFunc, getter: _getter = defaultGetter} = getImportInfo(importInfo)
 
-    useAsyncImport(importFunc, (value) => {
-      state.current = {
-        ...state.current,
-        [key]: value.value,
-      }
-      onChange(state.current)
-    }, _getter)
-  })
+      useAsyncImport(importFunc, (value) => {
+        state.current = {
+          ...state.current,
+          [key]: value.value,
+        }
+        onChangeRef.current(state.current)
+      }, _getter)
+    })
+  }, [onChangeRef, imports])
+
+
 }

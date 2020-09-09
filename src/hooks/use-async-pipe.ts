@@ -1,4 +1,4 @@
-import {useMemo} from 'react'
+import {useMemo, useRef} from 'react'
 import {createAsyncPipe, PipeFunc, Trap, Wrap} from '../utils/pipe'
 
 export interface AsyncOptions {
@@ -19,6 +19,8 @@ type onPipeChange = (value: any) => any
  */
 export const useAsyncPipe = (pipes: PipeFunc[], onChange: onPipeChange, options: AsyncOptions) => {
   const {trap, wrap} = options
+  const onChangeRef = useRef(onChange)
+  onChangeRef.current = onChange
 
   // async pipe with tarp and wrap
   const asyncPipe = useMemo(() => {
@@ -26,12 +28,12 @@ export const useAsyncPipe = (pipes: PipeFunc[], onChange: onPipeChange, options:
   }, [trap, wrap])
 
   // pipe execute function
-  const pipeExecute = useMemo<((value) => any)>(() => {
+  return useMemo<((value) => any)>(() => {
     const pipeExecute = asyncPipe(...pipes)
     return (value) => {
       return pipeExecute(value).then((state) => {
-        onChange(state)
+        onChangeRef.current(state)
       })
     }
-  }, [asyncPipe, pipes])
+  }, [asyncPipe, pipes, onChangeRef])
 }

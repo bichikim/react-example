@@ -12,6 +12,10 @@ export const useAsync = (value: Promise<any> | any, onChange: OnChange) => {
     error: null,
     value: null,
   })
+
+  const onChangeRef = useRef(onChange)
+  onChangeRef.current = onChange
+
   useEffect(() => {
     Promise.resolve().then(() => value)
     .then((value) => {
@@ -20,14 +24,14 @@ export const useAsync = (value: Promise<any> | any, onChange: OnChange) => {
         error: null,
         value,
       }
-      onChange(state.current)
+      onChangeRef.current(state.current)
     }).catch((error) => {
       state.current = {
         ...state.current,
         error,
         value: null,
       }
-      onChange(state.current)
+      onChangeRef.current(state.current)
     })
   }, [value])
 }
