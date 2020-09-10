@@ -1,5 +1,5 @@
 import {useCallback, useEffect, useRef} from 'react'
-import {OnChange, useAsync} from './use-async'
+import {OnAsyncChange, useAsync} from './use-async'
 
 type Getter<R> = (module: R) => any
 type AsyncImport<R> = () => (Promise<R> | R)
@@ -8,7 +8,7 @@ type OnImportsChange = (value: Record<string, any>) => any
 
 const defaultGetter = (module) => (module.default || module)
 
-export const useAsyncImport = (importFunc: AsyncImport<any>, onChange: OnChange, getter: Getter<any> = defaultGetter) => {
+export const useAsyncImport = (importFunc: AsyncImport<any>, onChange: OnAsyncChange, getter: Getter<any> = defaultGetter) => {
   const handleChange = useCallback((value) => {
     onChange(getter(value))
   }, [onChange, getter])
@@ -16,8 +16,8 @@ export const useAsyncImport = (importFunc: AsyncImport<any>, onChange: OnChange,
 }
 
 interface AsyncImportInfo<R> {
-  module: AsyncImport<R>
   getter?: Getter<R>
+  module: AsyncImport<R>
 }
 
 interface AsyncImports {

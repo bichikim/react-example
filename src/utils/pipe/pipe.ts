@@ -12,6 +12,7 @@ export const rawPipe = (
   let visitant = createVisitant('success', arg)
   const lastKey = functions.length - 1
   let specialKey: SpecialKey | undefined = 'first'
+
   for (const [index, func] of functions.entries()) {
     if (index === lastKey) {
       specialKey = 'last'

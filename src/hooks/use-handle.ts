@@ -1,4 +1,4 @@
-export type OnChange<E extends Event, V = any> = (event: E, value: V) => any
+export type OnHandleChange<E extends Event, V = any> = (event: E, value: V) => any
 export type Getter<E extends Event, V = any> = (event: E, value: any) => V
 export type PassBy<E extends Event, V = any> = (event: E, value: V) => any
 
@@ -18,7 +18,7 @@ const getValue = <E extends Event, V = any>(
 const defaultGetter = <E extends Event, V = any>(event: E, value: V) => (value ?? (event?.target as any)?.value)
 
 export const useHandle = <E extends Event, V = any>(
-  onChange?: OnChange<E, V>,
+  onChange?: OnHandleChange<E, V>,
   options: UseHandleOptions<E, V> = {},
 ) => {
   const {prevent = false, getter = defaultGetter, passBy, stop} = options

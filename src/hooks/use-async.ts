@@ -1,13 +1,13 @@
 import {useEffect, useRef} from 'react'
 
-export type OnChange = (value: AsyncState) => any
+export type OnAsyncChange = (value: AsyncState) => any
 
 export interface AsyncState {
   error: any | null
   value: any | null
 }
 
-export const useAsync = (value: Promise<any> | any, onChange: OnChange) => {
+export const useAsync = (value: Promise<any> | any, onChange: OnAsyncChange) => {
   const state = useRef<AsyncState>({
     error: null,
     value: null,

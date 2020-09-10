@@ -1,5 +1,6 @@
 {
   "compileOnSave": false,
+  "extends": "./tsconfig.paths.json",
   "compilerOptions": {
     /**************************
      * Basic Options          *
@@ -115,9 +116,9 @@
     "incremental": false,
     /* Do not emit output */
     "noEmit": true,
+    "downlevelIteration": true,
     "isolatedModules": false,
-    "resolveJsonModule": true,
-    "plugins": [{ "transform": "@zerollup/ts-transform-paths" }]
+    "resolveJsonModule": true
   },
   "include": [
     "src"
