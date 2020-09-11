@@ -2,30 +2,32 @@ import {act, fireEvent, render} from '@testing-library/react'
 import {useHandle} from '../use-handle'
 import {createElement as h} from 'react'
 
-describe('use-handle', function test() {
-  const setup = (getter?: any) => {
-    const HookComponent = jest.fn(({onChange, passBy}) => {
-      const handleChange = useHandle(onChange, {
-        passBy,
-        getter,
-      })
-      return h('input', {onChange: handleChange, value: ''})
-    })
-    const onChange = jest.fn(() => {
-      // empty
-    })
-    const passBy = jest.fn(() => {
-      // empty
-    })
-    const wrapper = render(h(HookComponent, {onChange, passBy}))
-    const input = wrapper.getByRole('textbox')
-
-    return {
-      input,
+const setup = (getter?: any) => {
+  const HookComponent = jest.fn(({onChange, passBy}) => {
+    const handleChange = useHandle(onChange, {
+      getter,
       passBy,
-      onChange,
-    }
+    })
+    return h('input', {onChange: handleChange, value: ''})
+  })
+  const onChange = jest.fn(() => {
+    // empty
+  })
+  const passBy = jest.fn(() => {
+    // empty
+  })
+  const wrapper = render(h(HookComponent, {onChange, passBy}))
+  const input = wrapper.getByRole('textbox')
+
+  return {
+    input,
+    onChange,
+    passBy,
   }
+}
+
+describe('use-handle', function test() {
+
 
   it('should serve event with the defaultGetter', function test() {
     const {input, onChange, passBy} = setup()
@@ -48,13 +50,13 @@ describe('use-handle', function test() {
 
   it('should serve event with a getter', function test() {
     const getter = jest.fn((event, value) => {
-      if(value) {
+      if (value) {
         return value
       }
 
       return event?.target.value + 'bar'
     })
-    const {input, onChange, passBy} = setup(getter)
+    const {input, onChange} = setup(getter)
     const value = 'foo'
 
     act(() => {

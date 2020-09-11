@@ -1,37 +1,49 @@
-import {useEffect, useRef} from 'react'
+import {useCallback, useEffect, useMemo, useRef} from 'react'
 
 export type OnAsyncChange = (value: AsyncState) => any
+export type RequestState = 'idle' | 'error' | 'wait' | 'success'
 
 export interface AsyncState {
-  error: any | null
+  state: RequestState
   value: any | null
 }
 
-export const useAsync = (value: Promise<any> | any, onChange: OnAsyncChange) => {
-  const state = useRef<AsyncState>({
-    error: null,
-    value: null,
-  })
+export const useAsync = (value: () => Promise<any> | any, onChange?: OnAsyncChange) => {
 
   const onChangeRef = useRef(onChange)
   onChangeRef.current = onChange
 
-  useEffect(() => {
-    Promise.resolve().then(() => value)
+  // first state
+  useMemo(() => {
+    onChangeRef.current && onChangeRef.current({state: 'idle', value: null})
+  }, [onChangeRef])
+
+  const execute = useCallback(() => {
+    onChangeRef.current &&
+    onChangeRef.current({
+      state: 'wait',
+      value: null,
+    })
+    Promise.resolve().then(() => value())
       .then((value) => {
-        state.current = {
-          ...state.current,
-          error: null,
+        onChangeRef.current &&
+        onChangeRef.current({
+          state: 'success',
           value,
-        }
-        onChangeRef.current(state.current)
-      }).catch((error) => {
-        state.current = {
-          ...state.current,
-          error,
-          value: null,
-        }
-        onChangeRef.current(state.current)
+        })
+      })
+      .catch((error) => {
+        onChangeRef.current &&
+        onChangeRef.current({
+          state: 'error',
+          value: error,
+        })
       })
   }, [value, onChangeRef])
+
+  useEffect(() => {
+    execute()
+  }, [execute])
+
+  return execute
 }
