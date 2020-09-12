@@ -1,6 +1,5 @@
-
 import flushPromises from 'flush-promises'
-import {useAsyncImport} from '../use-async-import'
+import {useAsyncImport} from '@/hooks'
 import {renderHook} from '@testing-library/react-hooks'
 const resolveEsModule = () => Promise.resolve({default: 'foo'})
 const resolveModule = () => Promise.resolve({foo: 'foo'})
