@@ -44,8 +44,12 @@ export interface TypographyVariantProps {
   typography?: ResponsiveValue<string>
 }
 
+export interface EventProps {
+  onChange?: (event) => any
+}
+
 export type BoxContainerProps =
-  TextDecorationProps & ASProps &
+  TextDecorationProps & ASProps & EventProps &
   BorderProps & ColorProps & LayoutProps & MarginProps & PaddingProps & PositionProps & ShadowProps &
   TypographyProps & ShowProps & FontShortProps & BorderShortProps & TypographyVariantProps & MotionProps
 

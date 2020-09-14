@@ -2,7 +2,7 @@ import {createStore} from '@/utils/rare'
 import React from 'react'
 
 export default {
-  title: 'tests/rare-lazy',
+  title: 'tests/debounce-lazy',
 }
 
 const {store, useStore} = createStore({
@@ -11,11 +11,11 @@ const {store, useStore} = createStore({
     bar: 4,
   },
   john: 6,
-}, {lazy: true})
+}, {debounce: true})
 
 const {useStore: useLazyStore} = createStore({
   foo: 5,
-}, {lazy: 2000})
+}, {debounce: 2000})
 
 const addJohn = () => {
   store.setState((draft) => {
