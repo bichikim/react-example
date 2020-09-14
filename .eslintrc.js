@@ -155,7 +155,7 @@ module.exports = {
       },
     },
     {
-      files: ['*.test.ts', '*.spec.ts', '*.test.tsx', '*.spec.tsx'],
+      files: ['*.tests.ts', '*.spec.ts', '*.tests.tsx', '*.spec.tsx'],
       rules: {
         'max-nested-callbacks': 'off',
         'no-magic-numbers': 'off',
