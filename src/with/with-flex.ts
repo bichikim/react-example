@@ -1,6 +1,6 @@
 import {Property} from 'csstype'
 import {isValidElement, ReactNode} from 'react'
-import {FlexRangeProps} from '@/systems/flex-range'
+import {FlexRangeProps} from '@/ui/systems/flex-range'
 import {ResponsiveValue} from 'styled-system'
 import {ComplexFunctionComponent, createWith} from './utils'
 import {EmptyObject} from '@/types'

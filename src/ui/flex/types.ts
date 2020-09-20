@@ -1,4 +1,4 @@
-import {BorderShortProps, FlexColumnProps, FontShortProps, GapProps, ShowProps} from '@/systems'
+import {BorderShortProps, FlexColumnProps, FontShortProps, GapProps, ShowProps} from '@/ui/systems'
 import {
   BorderProps,
   ColorProps,
