@@ -1,12 +1,9 @@
-import {flexRange, FlexRangeProps, show, ShowProps} from '@/systems'
-
-import {FC} from 'react'
-import styled from 'styled-components'
+import {flexRange, FlexRangeProps, show, ShowProps} from '@/ui/systems'
 import {system, typography, TypographyProps} from 'styled-system'
 
 export type FlexItemProps = FlexRangeProps & ShowProps & TypographyProps
 
-export const FlexItem: FC<any> = styled('div')(
+export const flexItemSystem = [
   {
     boxSizing: 'border-box',
     display: 'block',
@@ -25,4 +22,4 @@ export const FlexItem: FC<any> = styled('div')(
       property: 'flexBasis',
     },
   }),
-)
+]

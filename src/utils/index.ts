@@ -1,1 +1,1 @@
-export * from './parallel-props'
+export * from 'src/ui/parallel-props'

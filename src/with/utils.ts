@@ -7,12 +7,16 @@ import {
   PropsWithChildren,
   ReactElement, ReactNode, useRef,
 } from 'react'
-import {EmptyObject} from '@/types'
 
 export type PureFunctionComponent<P> = {
   (props: PropsWithChildren<P>): ReactNode
   displayName?: string
 }
+
+export type EmptyObject = {
+  // empty
+}
+
 
 export type AllComponentType<P, T = any> =
   ComponentClass<P>
@@ -51,6 +55,7 @@ export interface CreateWithOptions<P, OP> {
   name?: string
   postProcessing?: (With: ComplexFunctionComponent<P & OP>) => ComplexFunctionComponent<P & OP>
 }
+
 
 interface PostProcessingOptions<P, OP> extends CreateWithOptions<P, OP> {
   assign?: Record<symbol | string | number, any>
@@ -91,6 +96,7 @@ export const createWith = <P extends Record<string, any>, OP extends Record<stri
 
   return componentPostProcessing<P, OP>(With, {...options, assign: component})
 }
+
 
 export const createCurryWith =
   <P extends Record<string, any>, OP extends Record<string, any> = EmptyObject, T = any>(

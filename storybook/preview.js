@@ -1,12 +1,12 @@
 import {ThemeProvider} from 'styled-components'
 import {Fragment, createElement as h} from 'react'
-import {GlobalStyle} from '@/global-style'
+// import {GlobalStyle} from '@/global-style'
 import {DocsPage} from '@storybook/addon-docs/blocks'
 
 export const decorators = [
   (Story) => (
     h(Fragment, null,
-      h(GlobalStyle),
+      // h(GlobalStyle),
       h(ThemeProvider, {theme: {}},
         h(Story),
       ),

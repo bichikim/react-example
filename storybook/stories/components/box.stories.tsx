@@ -19,6 +19,7 @@ export const Default: FC = () => {
 }
 
 export const WithInherit: FC = () => {
+  console.log('inherit')
   return (
     <Box bg={'WhiteSmoke'} color={'white'} fw={'bold'} inheritItems p={10}>
       parent

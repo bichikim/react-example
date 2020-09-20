@@ -1,6 +1,7 @@
 import {omit, pick} from 'lodash'
-import {ReactElement, ReactNode} from 'react'
+import {ReactNode} from 'react'
 import {useOverride} from './use-override'
+import {useBaseType} from 'src/hooks/use-base-type'
 
 export interface InheritInfo {
   omit?: string[]
@@ -35,6 +36,7 @@ export const filterProps = (props: Record<string, any>, filter: string[] | Inher
   }
 
   const _pick = Array.isArray(filter) ? filter : filter.pick
+
   const _omit = Array.isArray(filter) ? undefined : filter.omit
 
   const inheritProps = _pick ? pick(props, _pick) : props
@@ -43,9 +45,13 @@ export const filterProps = (props: Record<string, any>, filter: string[] | Inher
 }
 
 const propsMerger = (overrideProps, childProps) => {
+
   const {inherit, forceInherit = false, ...rest} = childProps
+
   const pass = typeof inherit === 'object' ? inherit.pass ?? false : false
+
   let $pass = {}
+
   if (pass) {
     // pass inherit level props filter
     $pass = filterProps(overrideProps, pass)
@@ -56,8 +62,14 @@ const propsMerger = (overrideProps, childProps) => {
   return forceInherit ? inheritProps : {...inheritProps, ...rest, $pass}
 }
 
-const childFilter = (child: ReactElement): boolean => {
-  return child.type[WITH_INHERIT_SYM] === true
+const childFilter = (child: ReactNode): boolean => {
+  const type = useBaseType(child)
+
+  if (type) {
+    return type[WITH_INHERIT_SYM] === true
+  }
+
+  return false
 }
 
 export const useInherit = <P extends Record<string, any>>(props: P & InheritParentProps, children: ReactNode): ReactNode => {
@@ -76,6 +88,8 @@ export const useInherit = <P extends Record<string, any>>(props: P & InheritPare
 }
 
 export const markInherit = <T>(component: T): T => {
+
   component[WITH_INHERIT_SYM] = true
+
   return component
 }

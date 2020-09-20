@@ -1,6 +1,5 @@
 import css from '@styled-system/css'
 import {parallelProps} from '@/utils'
-import {useMemo} from 'react'
 import {ResponsiveValue} from 'styled-system'
 
 export interface ColumnProps {
@@ -14,7 +13,7 @@ export interface ColumnProps {
 
 export const column = (props: ColumnProps) => {
   const {column, reverse} = props
-  return useMemo(() => css(parallelProps({column, reverse}, ({column, reverse}) => {
+  return css(parallelProps({column, reverse}, ({column, reverse}) => {
     const flexDirection = [column ? 'column' : 'row']
 
     if (reverse) {
@@ -24,5 +23,5 @@ export const column = (props: ColumnProps) => {
     return {
       flexDirection: flexDirection.join('-'),
     }
-  })), [column, reverse])
+  }))
 }

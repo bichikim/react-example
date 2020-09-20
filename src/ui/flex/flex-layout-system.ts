@@ -1,13 +1,10 @@
-import {show, ShowProps} from '@/systems'
-import {FC} from 'react'
-import styled from 'styled-components'
+import {show, ShowProps} from '@/ui/systems'
 import fluid from 'fluid-system'
 import {border, BorderProps, compose, layout, LayoutProps, shadow, ShadowProps} from 'styled-system'
 
-type FlexLayoutProps = BorderProps & LayoutProps & ShadowProps
+export type FlexLayoutProps = BorderProps & LayoutProps & ShadowProps
   & ShowProps & JSX.IntrinsicElements['div']
-
-export const FlexLayout: FC<FlexLayoutProps> = styled('div')(
+export const flexLayoutSystem = [
   {
     display: 'flow-root',
     height: '100%',
@@ -16,4 +13,4 @@ export const FlexLayout: FC<FlexLayoutProps> = styled('div')(
   },
   show,
   fluid(compose(layout, shadow, border)),
-)
+]

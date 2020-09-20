@@ -1,8 +1,7 @@
 import css from '@styled-system/css'
-import {useMemo} from 'react'
-import {parallelProps} from '@/utils/parallel-props'
+import {parallelProps} from '../parallel-props'
 import {ResponsiveValue} from 'styled-system'
-import {SystemFunc} from '@/types'
+import {SystemFunc} from './types'
 
 export type Range = number | 'space' | 'auto' | 'force-space'
 
@@ -61,7 +60,7 @@ const getBasis = (division: number, range?: number) => {
 export const flexRange: SystemFunc<FlexRangeProps & FlexColumnProps> =
   (props) => {
     const {range, division, column, reverse, offset} = props
-    return useMemo(() => css(
+    return css(
       parallelProps(
         {column, division, offset, range, reverse},
         ({column, division, offset, range, reverse}) => {
@@ -98,5 +97,5 @@ export const flexRange: SystemFunc<FlexRangeProps & FlexColumnProps> =
           }
         },
       ),
-    ), [range, division, column, reverse, offset])
+    )
   }

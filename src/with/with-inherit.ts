@@ -12,6 +12,6 @@ export const withInherit = <P extends Record<string, any>, T = any>(
     const {children: _children, inheritProps: additionalProps, ...rest} = props
     const inheritProps = inherit ? filterProps(rest, inherit) : rest
     const children = useInherit({...inheritProps, inheritProps: additionalProps}, _children)
-    return {...rest, children}
+    return {...rest, children} as any
   },
 )
