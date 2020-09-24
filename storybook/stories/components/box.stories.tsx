@@ -1,6 +1,7 @@
-import React, {FC} from 'react'
+import React, {FC, useState, createElement as h} from 'react'
 import {Box} from '@/ui/box'
 import {Flex} from '@/ui/flex'
+import {AnimateSharedLayout} from 'framer-motion'
 
 export default {
   title: 'components/box',
@@ -56,12 +57,30 @@ export const SwapElement: FC = () => {
   )
 }
 
-export const Motion = () => {
+export const FramerMotion1 = () => {
   return (
     <Flex bg={'WhiteSmoke'} p={10}>
       <Box bg={'tomato'} height={100} range={'space'} whileHover={{width: '100%'}} width={100}/>
     </Flex>
 
+  )
+}
+
+
+
+export const FramerMotion2 = () => {
+  const [state, setState] = useState(false)
+  return (
+    h(Box, {bg: 'WhiteSmoke', display: 'flex', p: 10},
+      h(AnimateSharedLayout, null,
+        h(Box, {bg: 'silver', borderRadius: 10, color: 'White', onTap: () => setState(true), p: 10, whileTap: {scale: 0.8}, width: 200},
+          state && h(Box, {bg: 'Tomato', borderRadius: 10, className: 'foo', layoutId: 'content', p: 10}, 'bar'),
+        ),
+        h(Box, {bg: 'silver', borderRadius: 10, color: 'White', onTap: () => setState(false), p: 10, whileTap: {scale: 0.8}, width: 200},
+          !state && h(Box, {bg: 'Tomato', borderRadius: 10, layoutId: 'content', p: 10}, 'bar'),
+        ),
+      ),
+    )
   )
 }
 
