@@ -1,7 +1,7 @@
 import css from '@styled-system/css'
 import {parallelProps} from '../parallel-props'
 import {ResponsiveValue} from 'styled-system'
-import {SystemFunc} from './types'
+import {SystemFunc} from '../types'
 
 export type Range = number | 'space' | 'auto' | 'force-space'
 

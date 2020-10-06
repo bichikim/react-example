@@ -15,7 +15,7 @@ const {store, useStore} = createStore({
   john: 6,
 }, {debounce: true})
 
-const {useStore: useLazyStore} = createStore({
+const {useStore: useLazyStore, store: lazyStore} = createStore({
   foo: 5,
 }, {debounce: 2000})
 
@@ -25,10 +25,29 @@ const addJohn = () => {
   })
 }
 
+const addLazyFoo = () => {
+  lazyStore.setState((draft) => {
+    draft.foo += 1
+  })
+}
+
+const addFooBar = () => {
+  store.setState((draft) => {
+    draft.foo.bar += 1
+  })
+}
+
+const addBar = () => {
+  store.setState((draft) => {
+    draft.bar += 1
+  })
+}
+
 const myShadow = '0px 10px 1px #ddd, 0 10px 20px #ccc'
 
 export const Default = () => {
-  const [state, setState] = useStore()
+  const [state] = useStore()
+  const [lazyState] = useLazyStore()
   return (
     <Flex bg={'WhiteSmoke'} color={'white'} gap={10} inheritItems p={10}>
       <Box bg={'Tomato'}>
@@ -40,12 +59,14 @@ export const Default = () => {
         {state.bar}
       </Box>
       <Box bg={'Silver'}>
-        john
+        john:
         {state.john}
       </Box>
-      <Box bg={'Silver'} borderRadius={10} boxShadow={myShadow} onTap={() => (setState((draft) => {
-        draft.foo.bar += 1
-      }))} whileTap={{scale: 0.8}}
+      <Box bg={'Silver'}>
+        lazyFoo
+        {lazyState.foo}
+      </Box>
+      <Box bg={'Silver'} borderRadius={10} boxShadow={myShadow} onTap={addFooBar} whileTap={{scale: 0.8}}
       >
         add foo.bar
       </Box>
@@ -54,15 +75,12 @@ export const Default = () => {
   )
 }
 
-
 export const Inner = () => {
   const setState = useStore()[1]
 
   return (
     <Flex bg={'WhiteSmoke'} color={'white'} gap={10} inheritItems p={10}>
-      <Box bg={'Tomato'} borderRadius={10} boxShadow={myShadow} onTap={() => (setState((draft) => {
-        draft.bar += 1
-      }))} whileTap={{scale: 0.8}}
+      <Box bg={'Tomato'} borderRadius={10} boxShadow={myShadow} onTap={addBar} whileTap={{scale: 0.8}}
       >
         add bar
       </Box>
@@ -78,9 +96,7 @@ export const LongLazy = () => {
       <Box bg={'Tomato'}>
         {state.foo}
       </Box>
-      <Box bg={'Silver'} borderRadius={10} boxShadow={myShadow} onTap={() => setState((draft) => {
-        draft.foo += 1
-      })} whileTap={{scale: 0.8}}
+      <Box bg={'Silver'} borderRadius={10} boxShadow={myShadow} onTap={addLazyFoo} whileTap={{scale: 0.8}}
       >
         add long foo
       </Box>
