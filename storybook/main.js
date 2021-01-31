@@ -1,4 +1,4 @@
-const {resolve} = require('path')
+const {resolve} = require('paths.json')
 
 const disableEsLint = (config) => {
   return config.module.rules.filter((config) => config.use && config.use.some((config) => config.options && undefined !== config.options.useEslintrc)).forEach((s) => { config.module.rules = config.module.rules.filter((config) => config !== s) })
@@ -16,6 +16,7 @@ module.exports = {
   stories: [
     './stories/**/*.stories.[tj]s?(x)',
     './stories/**/*.stories.mdx',
+    '../src/stories/**/*.stories.[tj]s?(x)',
   ],
   webpackFinal: async (config) => {
     if (!config.module) {

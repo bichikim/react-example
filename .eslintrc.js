@@ -159,6 +159,7 @@ module.exports = {
       rules: {
         'max-nested-callbacks': 'off',
         'no-magic-numbers': 'off',
+        'sonarjs/no-identical-functions': 'off',
       },
     },
   ],

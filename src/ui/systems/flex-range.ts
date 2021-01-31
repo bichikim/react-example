@@ -1,7 +1,8 @@
 import css from '@styled-system/css'
-import {parallelProps} from '../parallel-props'
+import {parallelProps} from 'src/utils'
+import {deepMemoize} from '@/utils'
 import {ResponsiveValue} from 'styled-system'
-import {SystemFunc} from '../types'
+import {SystemFunction} from 'src/types'
 
 export type Range = number | 'space' | 'auto' | 'force-space'
 
@@ -24,24 +25,13 @@ export interface FlexColumnProps {
 
 const HUNDRED = 100
 
-export const getOffsetMargin = (column, reverse, offset) => {
+export const getOffsetMargin = (column, offset) => {
   if (typeof offset === 'undefined') {
     return {}
   }
   if (column) {
-    if (reverse) {
-      return {
-        marginBottom: offset,
-      }
-    }
     return {
       marginTop: offset,
-    }
-  }
-
-  if (reverse) {
-    return {
-      marginRight: offset,
     }
   }
 
@@ -57,45 +47,50 @@ const getBasis = (division: number, range?: number) => {
   return range
 }
 
-export const flexRange: SystemFunc<FlexRangeProps & FlexColumnProps> =
+const flexRangeCssLogic = deepMemoize(({column, division, offset, range, reverse}) => {
+  return css(
+    parallelProps(
+      {column, division, offset, range, reverse},
+      ({column, division, offset, range}) => {
+        const margin = getOffsetMargin(column, getBasis(division, offset))
+
+        switch (range) {
+          case 'auto':
+            return {
+              ...margin,
+              flexBasis: 'auto',
+              flexGrow: 0,
+              flexShrink: 0,
+            }
+          case 'space':
+            return {
+              ...margin,
+              flexBasis: '100%',
+              flexGrow: 1,
+              flexShrink: 1,
+            }
+          case 'force-space':
+            return {
+              ...margin,
+              flexBasis: 'auto',
+              flexGrow: 1,
+              flexShrink: 1,
+            }
+          default:
+            return {
+              ...margin,
+              flexBasis: getBasis(division, range),
+              flexGrow: 0,
+              flexShrink: 0,
+            }
+        }
+      },
+    ),
+  )
+}, {maxSize: 5000})
+
+export const flexRange: SystemFunction<FlexRangeProps & FlexColumnProps> =
   (props) => {
     const {range, division, column, reverse, offset} = props
-    return css(
-      parallelProps(
-        {column, division, offset, range, reverse},
-        ({column, division, offset, range, reverse}) => {
-          const padding = getOffsetMargin(column, reverse,  getBasis(division, offset))
-          switch (range) {
-            case 'auto':
-              return {
-                ...padding,
-                flexBasis: 'auto',
-                flexGrow: 0,
-                flexShrink: 1,
-              }
-            case 'space':
-              return {
-                ...padding,
-                flexBasis: '100%',
-                flexGrow: 1,
-                flexShrink: 1,
-              }
-            case 'force-space':
-              return {
-                ...padding,
-                flexBasis: 'auto',
-                flexGrow: 1,
-                flexShrink: 1,
-              }
-          }
-          return {
-            ...padding,
-            flexBasis: 'auto',
-            flexGrow: 1,
-            flexShrink: 0,
-            width: getBasis(division, range),
-          }
-        },
-      ),
-    )
+    return flexRangeCssLogic({column, division, offset, range, reverse})
   }

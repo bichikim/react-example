@@ -1,6 +1,6 @@
 {
   "compileOnSave": false,
-  "extends": "./tsconfig.paths.json",
+  "extends": "./paths.json",
   "compilerOptions": {
     "lib": [
       "esnext",
@@ -40,12 +40,7 @@
     "resolveJsonModule": true,
     "target": "es5",
     "module": "esnext",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": [
-        "src/*"
-      ]
-    }
+    "baseUrl": "."
   },
   "include": [
     "src"

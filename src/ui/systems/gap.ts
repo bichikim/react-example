@@ -1,4 +1,5 @@
 import css from '@styled-system/css'
+import {SystemFunction} from '@/types'
 import {ResponsiveValue} from 'styled-system'
 
 type ValueAble = number | string
@@ -36,7 +37,7 @@ export interface GapProps {
   gapStrategy?: ResponsiveValue<'between' | 'around'>
 }
 
-export const getTheme = (props, scale?: string | number | null, defaultValue?: any) => {
+export const getTheme = (props: any, scale?: string | number | null, defaultValue?: any) => {
   if (scale === null || typeof scale === 'undefined') {
     return scale
   }
@@ -48,7 +49,7 @@ export const getTheme = (props, scale?: string | number | null, defaultValue?: a
   return value
 }
 
-export const getResponsiveTheme = (props, scale: ResponsiveValue<string | number>, defaultValue?: any) => {
+export const getResponsiveTheme = (props: any, scale: ResponsiveValue<string | number>, defaultValue?: any) => {
   if (Array.isArray(scale)) {
     return scale.map((item) => getTheme(props, item, defaultValue))
   }
@@ -62,11 +63,15 @@ export const getResponsiveTheme = (props, scale: ResponsiveValue<string | number
   return getTheme(props, scale, defaultValue)
 }
 
-export const createGap = (height?: string) => {
-  return (props) => (gap(props, height))
+export const createGap = (height?: string): (props) => SystemFunction<GapProps> => {
+  return (props) => (gapWithHeight(props, height))
 }
 
-export const gap = (props, height?: string) => {
+export const gap = (props): SystemFunction<any> => {
+  return gapWithHeight(props)
+}
+
+const gapWithHeight = (props: any, size?: string): SystemFunction<any> => {
   const {gap} = props
   const sizeGap = getResponsiveTheme(props, gap)
   const oppositeGap = getMinusResponsiveValue(sizeGap)
@@ -76,9 +81,11 @@ export const gap = (props, height?: string) => {
       paddingTop: gap,
 
     },
-    height: height ? `calc(${height} + ${sizeGap}px)` : undefined,
+    height: size ? `calc(${size} + ${sizeGap}px)` : undefined,
     marginLeft: oppositeGap,
     marginTop: oppositeGap,
+    width: size ? `calc(${size} + ${sizeGap}px)` : undefined,
   }
+
   return css(style)
 }

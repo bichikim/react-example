@@ -1,5 +1,5 @@
 import {act, fireEvent, render} from '@testing-library/react'
-import {useHandle} from '../use-handle'
+import {useHandle} from 'src/hooks/handle'
 import {createElement as h} from 'react'
 
 const setup = (getter?: any) => {
