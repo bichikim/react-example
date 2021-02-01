@@ -1,4 +1,4 @@
-import {isPromise} from 'src/is-promise'
+import {isPromise} from '..'
 
 describe('is-promise', function test() {
   it('should be promise', function test() {

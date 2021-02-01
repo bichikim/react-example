@@ -14,6 +14,7 @@ import {
   position,
   PositionProps,
 } from 'styled-system'
+import {FlexItemRangeProps} from '@/ui'
 
 export * from './gap'
 export * from './flex-column'
@@ -44,7 +45,7 @@ export type SystemNames = keyof Systems
 export type SystemsMapper = Record<SystemNames, boolean>
 export interface SystemsProps extends
   SizeProps, TransformProps, BorderProps, TextProps, BoxShadowProps, TextShadowProps, FlexItemProps,
-  GridProps, MarginProps, PaddingProps, PositionProps, ColorProps, BackgroundColorProps,
+  GridProps, MarginProps, PaddingProps, PositionProps, ColorProps, BackgroundColorProps, FlexItemRangeProps,
   FlexProps
 {}
 
@@ -66,10 +67,7 @@ export const systemsTrueMapper: SystemsMapper = {
 }
 
 export const getSystems = (map: Partial<SystemsMapper>) => {
-  return Object.keys(map).map((key, toggle) => {
-    if (!toggle) {
-      return null
-    }
+  return Object.keys(map).map((key) => {
     const value = map[key]
     return value ? systems[key] : null
   })

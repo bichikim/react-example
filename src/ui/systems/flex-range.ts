@@ -13,9 +13,13 @@ export interface DivisionProps {
   division?: ResponsiveValue<number>
 }
 
-export interface FlexRangeProps extends DivisionProps {
+export interface FlexItemRangeProps {
   offset?: ResponsiveValue<Range>
   range?: ResponsiveValue<Range>
+}
+
+export interface FlexRangeProps extends DivisionProps, FlexItemRangeProps {
+
 }
 
 export interface FlexColumnProps {
@@ -63,13 +67,6 @@ const flexRangeCssLogic = deepMemoize(({column, division, offset, range, reverse
               flexShrink: 0,
             }
           case 'space':
-            return {
-              ...margin,
-              flexBasis: '100%',
-              flexGrow: 1,
-              flexShrink: 1,
-            }
-          case 'force-space':
             return {
               ...margin,
               flexBasis: 'auto',

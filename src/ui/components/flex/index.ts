@@ -1,6 +1,9 @@
-import {createElement as h, ReactNode, useCallback} from 'react'
+import {createElement as h, ReactNode, useCallback, FC} from 'react'
 import {useMapChildren, withFastMemo} from '@/hooks'
+import {ResponsiveValue} from 'styled-system'
 import {_Background, _Container, _Item, _Layout} from './items'
+import {BoxProps, FlexRangeProps, FlexColumnProps, GapProps, Range, FlexWrapProps} from '@/ui'
+import {Property} from 'csstype'
 
 export type UseMapChildrenExecute = (child: ReactNode, index: number) => ReactNode
 
@@ -9,7 +12,11 @@ const flexChildLeftFilter = (child: ReactNode): ReactNode => {
   return child
 }
 
-export const Flex = withFastMemo((props) => {
+export interface FlexProps extends BoxProps, FlexRangeProps, FlexColumnProps, GapProps, FlexWrapProps {
+  rangeItems?: ResponsiveValue<Range>
+}
+
+export const Flex: FC<FlexProps> = withFastMemo((props) => {
   const {
     children: _children,
     rangeItems = 'auto',

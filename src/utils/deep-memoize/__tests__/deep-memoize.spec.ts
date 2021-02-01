@@ -1,4 +1,4 @@
-import {deepMemoize} from 'src/deep-memoize'
+import {deepMemoize} from '..'
 
 describe('deep-memoize', function test() {
   it('should memo', function test() {

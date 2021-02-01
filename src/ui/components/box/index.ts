@@ -1,5 +1,5 @@
 import {Systems} from '@/ui/types'
-import {ComponentType} from 'react'
+import {ComponentType, FC} from 'react'
 import {createShouldForwardProp, props as defaultProps} from '@styled-system/should-forward-prop'
 import {getSystems, SystemsMapper, SystemsProps, systemsTrueMapper, UITheme} from '@/ui'
 import styled, {StyledTags} from '@emotion/styled'
@@ -8,7 +8,12 @@ import {withFastMemo} from '@/hooks'
 
 export type Props = Record<string, any>
 
-export interface BoxProps extends SystemsProps {
+export interface ElementProps {
+  as?: StyledTags<UITheme> | ComponentType<any>
+  ref?: any
+}
+
+export interface BoxProps extends SystemsProps, ElementProps {
 }
 
 export type BoxSystemNames = 'framer'
@@ -26,7 +31,12 @@ export const boxTrueMapper: BoxSystemsMapper = {
 }
 
 const defaultBoxStyles: Systems<Props> = [
-  {},
+  {
+    borderStyle: 'solid',
+    borderWidth: 0,
+    boxSizing: 'border-box',
+    position: 'relative',
+  },
 ]
 
 export interface CreateBoxOptions<P extends Props> {
@@ -60,7 +70,7 @@ export const createBox = <P extends Props>(props: CreateBoxOptions<P>) => {
   return Emotion
 }
 
-export const Box = withFastMemo(createBox({
+export const Box: FC<BoxProps> = withFastMemo(createBox({
   systems: {
     ...boxTrueMapper,
   },
