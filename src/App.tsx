@@ -1,22 +1,23 @@
-import React from 'react'
-import {Box, Flex} from '@/ui/components'
+import {titleAtom} from '@/atoms/layout'
+import {Layout} from '@/layout/Layout'
+import {Item} from '@/pages/item/Item'
+import {List} from '@/pages/List'
+import {Provider, useAtom} from 'jotai'
+import React, {FC} from 'react'
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
 
-export function App() {
+export const App: FC = () => {
+  const [title] = useAtom(titleAtom)
   return (
-    <Box>
-      <Flex bg='blue' p={10}>
-        <Box bg='red' p={10} range='space'>
-          bar
-        </Box>
-        <Box bg='yellow' p={10}>
-          foo
-        </Box>
-      </Flex>
-      <Flex bg='blue' division={12}>
-        <Box bg='red' offset={2} p={10} range={8}>
-          bar
-        </Box>
-      </Flex>
-    </Box>
+    <Provider>
+      <BrowserRouter>
+        <Layout title={title}>
+          <Switch>
+            <Route component={List} exact path={'/'}/>
+            <Route component={Item} path={'/item:id'}/>
+          </Switch>
+        </Layout>
+      </BrowserRouter>
+    </Provider>
   )
 }

@@ -1,6 +1,6 @@
 import {useMapChildren, withFastMemo} from '@/hooks'
 import {BoxProps, FlexColumnProps, FlexRangeProps, FlexWrapProps, GapProps, Range} from '@/ui'
-import {createElement as h, ReactNode, useCallback} from 'react'
+import {createElement as h, ReactNode, useCallback, FC} from 'react'
 import {ResponsiveValue} from 'styled-system'
 import {_Background, _Container, _Item, _Layout} from './items'
 
