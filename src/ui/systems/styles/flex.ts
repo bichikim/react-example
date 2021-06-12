@@ -2,7 +2,7 @@ import {Property} from 'csstype'
 import {ResponsiveValue, system} from 'styled-system'
 import {UITheme} from '@/ui'
 
-export interface FlexProps<T extends UITheme = Required<UITheme>> {
+export interface FlexSystemProps<T extends UITheme = Required<UITheme>> {
   alignContent?: ResponsiveValue<Property.AlignContent, T>
   alignItems?: ResponsiveValue<Property.AlignItems, T>
   fai?: ResponsiveValue<Property.AlignItems, T>
@@ -17,7 +17,7 @@ export interface FlexProps<T extends UITheme = Required<UITheme>> {
   order?: ResponsiveValue<Property.Order, T>
 }
 
-export const flex = system<FlexProps>({
+export const flex = system<FlexSystemProps>({
   alignContent: true,
   alignItems: true,
   fai: {

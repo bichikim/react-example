@@ -87,28 +87,9 @@ const uinconRules = {
   'unicorn/no-fn-reference-in-iterator': 'off',
   'unicorn/no-null': 'off',
   'unicorn/no-reduce': 'off',
-  'unicorn/prevent-abbreviations': ['error', {
-    replacements: {
-      arg: false,
-      args: false,
-      btn: false,
-      dev: false,
-      docs: false,
-      elem: false,
-      env: false,
-      prev: false,
-      prop: false,
-      props: false,
-      ref: false,
-      rel: false,
-      src: false,
-    },
-    whitelist: {
-      getInitialProps: true,
-    },
-  }],
 }
 
+// eslint-disable-next-line unicorn/prefer-module
 module.exports = {
   env: {
     amd: true,
@@ -125,8 +106,8 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:import/warnings',
-    'plugin:unicorn/recommended',
-    'plugin:sonarjs/recommended',
+    // skip for now
+    // 'plugin:unicorn/recommended',
   ],
   overrides: [
     {
@@ -152,6 +133,7 @@ module.exports = {
       files: ['*.js'],
       rules: {
         '@typescript-eslint/no-var-requires': 'off',
+        'unicorn/prefer-module': 'off',
       },
     },
     {

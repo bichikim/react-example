@@ -64,7 +64,7 @@ export const createBox = <P extends Props>(props: CreateBoxOptions<P>) => {
   })(...styles_ as any)
 
   if (systems.framer) {
-    return motion.custom(Emotion)
+    return motion(Emotion)
   }
 
   return Emotion

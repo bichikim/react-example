@@ -1,6 +1,6 @@
 import {
   backgroundColor,  BackgroundColorProps,  border, BorderProps,
-  boxShadow,  BoxShadowProps,  color, ColorProps, flex, flexItem, FlexItemProps, FlexProps,
+  boxShadow,  BoxShadowProps,  color, ColorProps, flex, flexItem, FlexItemProps, FlexSystemProps,
   size, SizeProps, text, TextProps,
   textShadow, TextShadowProps, transform, TransformProps,
 } from './styles'
@@ -46,8 +46,10 @@ export type SystemsMapper = Record<SystemNames, boolean>
 export interface SystemsProps extends
   SizeProps, TransformProps, BorderProps, TextProps, BoxShadowProps, TextShadowProps, FlexItemProps,
   GridProps, MarginProps, PaddingProps, PositionProps, ColorProps, BackgroundColorProps, FlexItemRangeProps,
-  FlexProps
-{}
+  FlexSystemProps
+{
+  // empty
+}
 
 export const systemsTrueMapper: SystemsMapper = {
   backgroundColor: true,

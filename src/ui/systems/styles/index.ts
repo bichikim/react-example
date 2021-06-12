@@ -3,7 +3,7 @@ import {text, TextProps} from './text'
 import {boxShadow, BoxShadowProps, textShadow, TextShadowProps} from './shadow'
 import {transform, TransformProps} from './transform'
 import {size, SizeProps} from './size'
-import {flex, flexItem, FlexItemProps, FlexProps} from './flex'
+import {flex, flexItem, FlexItemProps, FlexSystemProps} from './flex'
 import {backgroundColor, BackgroundColorProps, color, ColorProps} from './color'
 
 export type {
@@ -13,7 +13,7 @@ export type {
   TextShadowProps,
   TransformProps,
   SizeProps,
-  FlexProps,
+  FlexSystemProps,
   FlexItemProps,
   ColorProps,
   BackgroundColorProps,
